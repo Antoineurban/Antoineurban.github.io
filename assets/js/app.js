@@ -141,7 +141,7 @@ var highlightStyle = {
   radius: 10
 };
 
-var boroughs = L.geoJson(null, {
+var stations = L.geoJson(null, {
   style: function (feature) {
     return {
       color: "black",
@@ -153,13 +153,13 @@ var boroughs = L.geoJson(null, {
   onEachFeature: function (feature, layer) {
     boroughSearch.push({
       name: layer.feature.properties.BoroName,
-      source: "Boroughs",
+      source: "Stations",
       id: L.stamp(layer),
       bounds: layer.getBounds()
     });
   }
 });
-$.getJSON("data/boroughs.geojson", function (data) {
+$.getJSON("data/stations.geojson", function (data) {
   boroughs.addData(data);
 });
 
